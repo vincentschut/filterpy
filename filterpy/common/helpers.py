@@ -18,8 +18,10 @@ for more information.
 #
 from numpy import array, asarray, isscalar, eye, dot
 from functools import reduce
+from numba import njit
 
 
+@njit
 def dot3(A,B,C):
     """ Returns the matrix multiplication of A*B*C"""
     return dot(A, dot(B,C))
