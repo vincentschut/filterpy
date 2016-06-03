@@ -875,10 +875,11 @@ def update(x, P, z, R, H=None, return_all=False):
 
 
     # map system uncertainty into kalman gain
-    try:
-        K = dot3(P, H.T, linalg.inv(S))
-    except:
-        K = dot3(P, H.T, 1/S)
+    #try:
+    #    K = dot3(P, H.T, linalg.inv(S))
+    #except:
+    #    K = dot3(P, H.T, 1/S)
+    K = dot3(P, H.T, linalg.inv(S))
 
 
     # predict new x with residual scaled by the kalman gain
@@ -888,10 +889,12 @@ def update(x, P, z, R, H=None, return_all=False):
     KH = dot(K, H)
 
 
-    try:
-        I_KH = np.eye(KH.shape[0]) - KH
-    except:
-        I_KH = np.array(1 - KH)
+    #try:
+    #    I_KH = np.eye(KH.shape[0]) - KH
+    #except:
+    #    I_KH = np.array(1 - KH)
+    I_KH = np.eye(KH.shape[0]) - KH
+
     P = dot3(I_KH, P, I_KH.T) + dot3(K, R, K.T)
 
     # compute log likelihood
