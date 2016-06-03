@@ -80,7 +80,7 @@ class KalmanFilter(object):
         Log likelihood of last measurement update.
     """
 
-    def __init__(self, dim_x, dim_z, dim_u):
+    def __init__(self, dim_x, dim_z, dim_u=0):
         """ Create a Kalman filter. You are responsible for setting the
         various state variables to reasonable values; the defaults below will
         not give you a functional filter.
