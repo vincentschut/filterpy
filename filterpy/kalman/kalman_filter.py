@@ -23,7 +23,6 @@ from numpy import dot, zeros, eye, isscalar, shape
 import scipy.linalg as linalg
 from scipy.stats import multivariate_normal
 from numba import jitclass
-from numba import
 
 
 class KalmanFilter(object):
