@@ -1041,7 +1041,8 @@ def batch_filter(x, P, zs, Fs, Qs, Hs, Rs, Bs=None, us=None, update_first=False)
 
     """
 
-    n = np.size(zs,0)
+    #n = np.size(zs,0)
+    n = zs.shape[0]
     dim_x = x.shape[0]
 
     # mean estimates from Kalman Filter
