@@ -22,9 +22,9 @@ import numpy as np
 from numpy import dot, zeros, eye, isscalar, shape
 import scipy.linalg as linalg
 from scipy.stats import multivariate_normal
-from numba import jit
+from numba import jit, njit
 
-
+@njit
 class KalmanFilter(object):
     """ Implements a Kalman filter. You are responsible for setting the
     various state variables to reasonable values; the defaults  will
