@@ -22,7 +22,7 @@ import numpy as np
 from numpy import dot, zeros, eye, isscalar, shape
 import scipy.linalg as linalg
 from scipy.stats import multivariate_normal
-from numba import jitclass
+from numba import jit
 
 
 class KalmanFilter(object):
@@ -786,7 +786,7 @@ class KalmanFilter(object):
         return self._S
 
 
-
+@jit
 def update(x, P, z, R, H=None, return_all=False):
     """
     Add a new measurement (z) to the Kalman filter. If z is None, nothing
@@ -905,7 +905,7 @@ def update(x, P, z, R, H=None, return_all=False):
         return x, P
 
 
-
+@jit
 def predict(x, P, F=1, Q=0, u=0, B=1, alpha=1.):
     """ Predict next position using the Kalman filter state propagation
     equations.
@@ -958,7 +958,7 @@ def predict(x, P, F=1, Q=0, u=0, B=1, alpha=1.):
     return x, P
 
 
-
+@jit
 def batch_filter(x, P, zs, Fs, Qs, Hs, Rs, Bs=None, us=None, update_first=False):
     """ Batch processes a sequences of measurements.
 
@@ -1089,7 +1089,7 @@ def batch_filter(x, P, zs, Fs, Qs, Hs, Rs, Bs=None, us=None, update_first=False)
     return (means, covariances, means_p, covariances_p)
 
 
-
+@jit
 def rts_smoother(Xs, Ps, Fs, Qs):
     """ Runs the Rauch-Tung-Striebal Kalman smoother on a set of
     means and covariances computed by a Kalman filter. The usual input
