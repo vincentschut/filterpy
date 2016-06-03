@@ -111,7 +111,7 @@ class KalmanFilter(object):
         self._x = zeros((dim_x,1)) # state
         self._P = eye(dim_x)       # uncertainty covariance
         self._Q = eye(dim_x)       # process uncertainty
-        self._B = 0                # control transition matrix
+        self._B[:,:] = 0                # control transition matrix
         self._F = 0                # state transition matrix
         self.H = 0                 # Measurement function
         self.R = eye(dim_z)        # state uncertainty
