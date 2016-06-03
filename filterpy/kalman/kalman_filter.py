@@ -1058,8 +1058,10 @@ def batch_filter(x, P, zs, Fs, Qs, Hs, Rs, Bs=None, us=None, update_first=False)
     covariances_p = zeros((n, dim_x, dim_x))
 
     if us is None:
-       us = [0.]*n
-       Bs = [0.]*n
+       #us = [0.]*n
+       us = np.zeros(n)
+       #Bs = [0.]*n
+       Bs = np.zeros(n)
 
     #if len(Fs) < n: Fs = [Fs]*n
     #if len(Qs) < n: Qs = [Qs]*n
