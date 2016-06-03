@@ -1061,12 +1061,12 @@ def batch_filter(x, P, zs, Fs, Qs, Hs, Rs, Bs=None, us=None, update_first=False)
        us = [0.]*n
        Bs = [0.]*n
 
-    if len(Fs) < n: Fs = [Fs]*n
-    if len(Qs) < n: Qs = [Qs]*n
-    if len(Hs) < n: Hs = [Hs]*n
-    if len(Rs) < n: Rs = [Rs]*n
-    if len(Bs) < n: Bs = [Bs]*n
-    if len(us) < n: us = [us]*n
+    #if len(Fs) < n: Fs = [Fs]*n
+    #if len(Qs) < n: Qs = [Qs]*n
+    #if len(Hs) < n: Hs = [Hs]*n
+    #if len(Rs) < n: Rs = [Rs]*n
+    #if len(Bs) < n: Bs = [Bs]*n
+    #if len(us) < n: us = [us]*n
 
 
     if update_first:
