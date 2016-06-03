@@ -24,7 +24,7 @@ import scipy.linalg as linalg
 from scipy.stats import multivariate_normal
 from numba import jit, njit
 
-@njit
+
 class KalmanFilter(object):
     """ Implements a Kalman filter. You are responsible for setting the
     various state variables to reasonable values; the defaults  will
@@ -786,7 +786,7 @@ class KalmanFilter(object):
         return self._S
 
 
-@jit
+@njit
 def update(x, P, z, R, H=None, return_all=False):
     """
     Add a new measurement (z) to the Kalman filter. If z is None, nothing
@@ -908,7 +908,7 @@ def update(x, P, z, R, H=None, return_all=False):
         return x, P
 
 
-@jit
+@njit
 def predict(x, P, F=1, Q=0, u=0, B=1, alpha=1.):
     """ Predict next position using the Kalman filter state propagation
     equations.
@@ -961,7 +961,7 @@ def predict(x, P, F=1, Q=0, u=0, B=1, alpha=1.):
     return x, P
 
 
-@jit
+@njit
 def batch_filter(x, P, zs, Fs, Qs, Hs, Rs, Bs=None, us=None, update_first=False):
     """ Batch processes a sequences of measurements.
 
@@ -1092,7 +1092,7 @@ def batch_filter(x, P, zs, Fs, Qs, Hs, Rs, Bs=None, us=None, update_first=False)
     return (means, covariances, means_p, covariances_p)
 
 
-@jit
+@njit
 def rts_smoother(Xs, Ps, Fs, Qs):
     """ Runs the Rauch-Tung-Striebal Kalman smoother on a set of
     means and covariances computed by a Kalman filter. The usual input
