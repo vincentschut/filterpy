@@ -953,7 +953,8 @@ def predict(x, P, F=1, Q=0, u=0, B=1, alpha=1.):
         Prior covariance matrix
     """
 
-    if np.isscalar(F):
+    #if np.isscalar(F):
+    if not hasattr(F, 'dtype'):
         F = np.array(F)
     x = dot(F, x) + dot(B, u)
     P = (alpha * alpha) * dot3(F, P, F.T) + Q
