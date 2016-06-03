@@ -22,6 +22,8 @@ import numpy as np
 from numpy import dot, zeros, eye, isscalar, shape
 import scipy.linalg as linalg
 from scipy.stats import multivariate_normal
+from numba import jitclass
+from numba import
 
 
 class KalmanFilter(object):
@@ -79,7 +81,7 @@ class KalmanFilter(object):
         Log likelihood of last measurement update.
     """
 
-    def __init__(self, dim_x, dim_z, dim_u=0):
+    def __init__(self, dim_x, dim_z, dim_u):
         """ Create a Kalman filter. You are responsible for setting the
         various state variables to reasonable values; the defaults below will
         not give you a functional filter.
