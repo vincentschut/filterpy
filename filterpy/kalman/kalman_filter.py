@@ -112,16 +112,16 @@ class KalmanFilter(object):
         self._P = eye(dim_x)       # uncertainty covariance
         self._Q = eye(dim_x)       # process uncertainty
         self._B[:,:] = 0                # control transition matrix
-        self._F = 0                # state transition matrix
-        self.H = 0                 # Measurement function
+        self._F[:,:] = 0                # state transition matrix
+        self.H[:,:] = 0                 # Measurement function
         self.R = eye(dim_z)        # state uncertainty
         self._alpha_sq = 1.        # fading memory control
-        self.M = 0                 # process-measurement cross correlation
+        self.M[:,:] = 0                 # process-measurement cross correlation
 
         # gain and residual are computed during the innovation step. We
         # save them so that in case you want to inspect them for various
         # purposes
-        self._K = 0 # kalman gain
+        self._K[:,:] = 0 # kalman gain
         self._y = zeros((dim_z, 1))
         self._S = np.zeros((dim_z, dim_z)) # system uncertainty
 
