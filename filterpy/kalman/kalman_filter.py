@@ -1144,6 +1144,9 @@ def rts_smoother(Xs, Ps, Fs, Qs):
     n = Xs.shape[0]
     dim_x = Xs.shape[1]
 
+    if len(Fs) < n: Fs = [Fs] * n
+    if len(Qs) < n: Qs = [Qs] * n
+
     # smoother gain
     K = zeros((n,dim_x,dim_x))
     x, P = Xs.copy(), Ps.copy()
