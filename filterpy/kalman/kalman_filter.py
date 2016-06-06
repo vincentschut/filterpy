@@ -1059,9 +1059,9 @@ def batch_filter(x, P, zs, Fs, Qs, Hs, Rs, Bs=None, us=None, update_first=False)
 
     if us is None:
        #us = [0.]*n
-       us = np.zeros(n)
+       us = np.zeros(n, 1)
        #Bs = [0.]*n
-       Bs = np.zeros(n)
+       Bs = np.zeros(n, 1)
 
     #if len(Fs) < n: Fs = [Fs]*n
     #if len(Qs) < n: Qs = [Qs]*n
