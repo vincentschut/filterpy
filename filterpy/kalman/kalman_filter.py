@@ -1082,7 +1082,15 @@ def batch_filter(x, P, zs, Fs, Qs, Hs, Rs, Bs=None, us=None, update_first=False)
             means_p[i,:]         = x
             covariances_p[i,:,:] = P
     else:
-        for i, (z, F, Q, H, R, B, u) in enumerate(zip(zs, Fs, Qs, Hs, Rs, Bs, us)):
+        #for i, (z, F, Q, H, R, B, u) in enumerate(zip(zs, Fs, Qs, Hs, Rs, Bs, us)):
+        for i in range(n):
+            z = zs[i]
+            F = Fs[i]
+            Q = Qs[i]
+            H = Hs[i]
+            R = Rs[i]
+            B = Bs[i]
+            u = us[i]
 
             print(z, F, Q, H, R, B, u)
 
