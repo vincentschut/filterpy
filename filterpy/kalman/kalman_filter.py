@@ -1084,6 +1084,8 @@ def batch_filter(x, P, zs, Fs, Qs, Hs, Rs, Bs=None, us=None, update_first=False)
     else:
         for i, (z, F, Q, H, R, B, u) in enumerate(zip(zs, Fs, Qs, Hs, Rs, Bs, us)):
 
+            print(z, F, Q, H, R, B, u)
+
             x, P = predict(x, P, u=u, B=B, F=F, Q=Q)
             means_p[i,:]         = x
             covariances_p[i,:,:] = P
